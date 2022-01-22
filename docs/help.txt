@@ -1,0 +1,29 @@
+Before use it, cd to your work directory first!
+Usage:   ii -h
+         ii [command] [[options] [values]]
+Example: ii filetree -f tree.md -i true
+
+Command: 
+  release                npm version patch && 
+                         npm publish && 
+                         git push --follow-tags
+  filetree               create a file tree with "+-" and "|"
+                         with markdown
+
+Release: release command does not accept options.
+
+Filetree:
+  -f / --filename              set name for output file. Default
+                               of 'filetree.md'
+  -u / --use                   using format. Available in 'html',
+                               'markdown'/'md' and 'txt'.
+  -i / --ignore-description    ignore writing descriptions by
+                               each file and directory. Value 
+                               with 'true', 't', 'false' or 'f'
+  -usf / --use-subfolder       use only the referred folder to
+                               make a file tree. Value with a 
+                               string of your folder inside 
+                               current directory.
+
+
+-h / --help              show this page

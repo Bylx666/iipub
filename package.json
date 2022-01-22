@@ -8,7 +8,7 @@
   },
   "bin": {
     "patch-release": "npm version patch && npm publish && git push --follow-tags",
-    "test": "index.js"
+    "ii": "index.js"
   },
   "repository": {
     "type": "git",
