@@ -1,0 +1,23 @@
+{
+  "name": "iipub",
+  "version": "1.0.0",
+  "description": "publish suits for more convenient and quicker developing",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "bin": {
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "test": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "wait.."
+  },
+  "keywords": [
+    "markdown",
+    "files"
+  ],
+  "author": "bylx666",
+  "license": "MPL-2.0"
+}
