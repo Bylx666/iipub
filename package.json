@@ -7,17 +7,20 @@
     "test": "node index.js"
   },
   "bin": {
-    "patch-release": "npm version patch && npm publish && git push --follow-tags",
     "ii": "index.js"
   },
   "repository": {
     "type": "git",
-    "url": "wait.."
+    "url": "git+https://github.com/Bylx666/iipub"
   },
   "keywords": [
     "markdown",
     "files"
   ],
   "author": "bylx666",
-  "license": "MPL-2.0"
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/Bylx666/iipub/issues"
+  },
+  "homepage": "https://github.com/Bylx666/iipub#readme"
 }
