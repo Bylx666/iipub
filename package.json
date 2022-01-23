@@ -1,6 +1,6 @@
 {
   "name": "iipub",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "publish suits for more convenient and quicker developing",
   "main": "index.js",
   "scripts": {
