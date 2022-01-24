@@ -11,8 +11,11 @@ Commands:
                          npm publish && 
                          git push --follow-tags
   filetree               create a file tree with "+-" and "|"
+  server                 run a local static server for your 
+                         current directory
 
-Release: release command does not accept options.
+Release:
+  release command does not accept options.
 
 Filetree:
   -o / --output                set name for output file. Default
@@ -26,5 +29,14 @@ Filetree:
                                string of your folder inside 
                                current directory.
 
+server:
+  -p / --port                  set port for the server
+  -acao / --allow-cors         set Access-Control-Allow-Origin 
+                               to '*'. Values with boolean. 
+                               Default 't'.
+  -pd / --print-detail         print every requests of the file. 
+                               Values boolean Default 't'.
+  -i / --index                 set the index file. Default 
+                               'index.html'.
 
 -h / --help              show this page

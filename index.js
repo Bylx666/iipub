@@ -4,6 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const rl = require('readline')
 const templates = require('./filetree/templates')
+const http = require('http')
 
 let params = process.argv.slice(2)
 let root = process.cwd()
@@ -19,6 +20,10 @@ const tf = (valueA, valueB, defaultValue=false)=>{// true or false
   let input = get(valueA) || get(valueB) || defaultValue
   if(input=='f'||input=='false') input=false
   else if(input=='t'||input=='true') input=true
+  else {
+    let e = 'invalid boolean'+input+'! Available in `t`,`true`,`f` and `false`.'
+    throw e
+  }
   return input
 }
 
@@ -117,6 +122,50 @@ else if(cmd=='filetree') {
     fs.writeFileSync(outputPath,data)
     console.log('DONE.')
   }
+}
+
+else if(cmd=='server') {
+  let port = parseInt( get('-p') || get('--port') || 8088 )
+  let acao = tf('-acao','--allow-cors','t') 
+  let pd = tf('-pd','--print-detail','t')
+  let index = get('-i') || get('--index') || 'index.html'
+
+  let server = http.createServer((req,res)=>{
+    if(acao) res.setHeader('access-control-allow-origin','*')
+    if(req.url=='/') req.url=index
+
+    if(req.url=='/favicon.ico') {
+      res.writeHead(200, {'content-type':'image/png'})
+      res.end(read('server/favicon.png'))
+    }else {
+      try {
+        let file = fs.readFileSync(path.join(root,req.url))
+        res.writeHead(200)
+        res.end(file)
+      }catch (e) {
+        if(pd) console.log(e.message)
+        res.writeHead(404, {'content-type':'text/plain; charset=utf-8'})
+        res.end('file not found')
+      }
+      
+    }
+    if(pd) console.log(req.url)
+  }).listen(port)
+
+  const listenAnotherPort = ()=>{
+    port++
+    server.listen(port)
+  }
+  server.on('error', (e)=>{
+    if(e.syscall=='listen') {
+      listenAnotherPort()
+      rl.clearLine(process.stdout, 0)
+      rl.cursorTo(process.stdout, 0)
+      console.log(`server running at http://localhost:${port} → ${root}`)
+    }
+  })
+
+  console.log(`server running at http://localhost:${port} → ${root}`)
 }
 
 else {
