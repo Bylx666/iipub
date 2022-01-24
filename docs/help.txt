@@ -38,5 +38,7 @@ server:
                                Values boolean Default 't'.
   -i / --index                 set the index file. Default 
                                'index.html'.
+  --set-mime                   do NOT accept values. Run `ii server 
+                               --set-mime` to configure mime types.
 
 -h / --help              show this page
