@@ -30,7 +30,7 @@ use .gitignore file. Values with boolean. Default 't'.
 #### `-s`, `--subfolder`
 use only the referred folder to make a file tree. Value with a string of your folder inside current directory.
 #### `--try-readme`
-try to read readme file in each directory and note for the directory. Values with filename, with empty to use default 'readme.md'
+try to read readme file in each directory and get summary for the directory. Values with filename, with empty to use default 'readme.md'
 ***
 
 ### `server`

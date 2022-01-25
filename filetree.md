@@ -4,6 +4,7 @@ file tree
 | +-gitcommit
 | +-help.txt
 | +-readme.md
++-filetree.--try-readme
 +-filetree.html
 +-filetree.md
 +-index.js
