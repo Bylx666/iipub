@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const {params,read} = require('./lib')
+const { params, read } = require('./lib')
 
 let cmd = params[0]
 
