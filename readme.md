@@ -11,4 +11,4 @@ easy push and publish your project online!
 3. run a file server for current directory.
 
 ## details
-See [docs](./docs/readme.md)
+See [docs](./lib/docs/readme.md)
